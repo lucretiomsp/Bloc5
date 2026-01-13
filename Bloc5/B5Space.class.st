@@ -24,6 +24,14 @@ B5Space class >> extent [
 	^ 600 @ 600
 ]
 
+{ #category : 'adding' }
+B5Space >> addChild: aBlEelement [
+
+"convenience method"
+
+self root addChild: aBlEelement
+]
+
 { #category : 'accessing' }
 B5Space >> centerCoordinates [
 

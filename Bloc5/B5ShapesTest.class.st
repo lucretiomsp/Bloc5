@@ -1,8 +1,9 @@
 Class {
 	#name : 'B5ShapesTest',
 	#superclass : 'TestCase',
-	#category : 'Bloc5',
-	#package : 'Bloc5'
+	#category : 'Bloc5-Tests',
+	#package : 'Bloc5',
+	#tag : 'Tests'
 }
 
 { #category : 'tests' }
