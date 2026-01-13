@@ -10,8 +10,9 @@ Class {
 	#instVars : [
 		'diameter'
 	],
-	#category : 'Bloc5',
-	#package : 'Bloc5'
+	#category : 'Bloc5-Shapes',
+	#package : 'Bloc5',
+	#tag : 'Shapes'
 }
 
 { #category : 'accessing' }

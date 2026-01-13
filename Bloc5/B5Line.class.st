@@ -7,8 +7,9 @@ creates a black line, 5px border,
 Class {
 	#name : 'B5Line',
 	#superclass : 'B5Shape',
-	#category : 'Bloc5',
-	#package : 'Bloc5'
+	#category : 'Bloc5-Shapes',
+	#package : 'Bloc5',
+	#tag : 'Shapes'
 }
 
 { #category : 'instance creation' }

@@ -7,8 +7,9 @@ Class {
 	#instVars : [
 		'frameRate'
 	],
-	#category : 'Bloc5',
-	#package : 'Bloc5'
+	#category : 'Bloc5-Space',
+	#package : 'Bloc5',
+	#tag : 'Space'
 }
 
 { #category : 'accessing' }

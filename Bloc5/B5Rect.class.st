@@ -7,8 +7,9 @@ creates a black Retangle, 160x20 rectangle positioned at the center of an NcSpac
 Class {
 	#name : 'B5Rect',
 	#superclass : 'B5Shape',
-	#category : 'Bloc5',
-	#package : 'Bloc5'
+	#category : 'Bloc5-Shapes',
+	#package : 'Bloc5',
+	#tag : 'Shapes'
 }
 
 { #category : 'initialization' }

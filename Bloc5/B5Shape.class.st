@@ -4,8 +4,9 @@ Super class for all high level classe with shapes a la p5js
 Class {
 	#name : 'B5Shape',
 	#superclass : 'BlElement',
-	#category : 'Bloc5',
-	#package : 'Bloc5'
+	#category : 'Bloc5-Shapes',
+	#package : 'Bloc5',
+	#tag : 'Shapes'
 }
 
 { #category : 'accessing' }
