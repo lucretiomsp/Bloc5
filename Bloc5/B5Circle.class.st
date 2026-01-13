@@ -1,7 +1,7 @@
 "
 Convenience high level abstraction to draw a Circle a la p5js.
 Basic creation:
-NCCircle new
+B5Circle new
 creates a black Circle, 10px diameter positioned at the center of an NcSpace
 "
 Class {

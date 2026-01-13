@@ -1,7 +1,7 @@
 "
 Convenience high level abstraction to draw an Ellipse a la p5js.
 
-NcEllopse new
+B5Ellipse new
 creates a black Circle, 10@20 extent , positioned at the center of an NcSpace
 "
 Class {

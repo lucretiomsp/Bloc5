@@ -1,7 +1,7 @@
 "
 Convenience high level abstraction to draw a line a la p5js.
 Basic creation:
-NCLine from: aPoint to: anotherPoint
+B5Line from: aPoint to: anotherPoint
 creates a black line, 5px border,
 "
 Class {
