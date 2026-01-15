@@ -15,15 +15,15 @@ Class {
 B5Triangle >> initialize [
 
 	super initialize.
-	v1 := 300@300.
-	v2 := 400@100.
-	v3 := 500@300.
+	v1 := 300 @ 300.
+	v2 := 400 @ 100.
+	v3 := 500 @ 300.
 	self geometry: (BlPolygonGeometry vertices: {
 				 self v1.
 				 self v2.
 				 self v3 }).
-	self background: (Color pink alpha: 0.2).
-	self border: (BlBorder paint: Color black width: 1)
+	self background: (Color red alpha: 0.8).
+	self border: (BlBorder paint: Color black width: 2)
 ]
 
 { #category : 'drawing' }
