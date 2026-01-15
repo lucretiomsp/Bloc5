@@ -11,58 +11,27 @@ Class {
 	#tag : 'Shapes'
 }
 
-{ #category : 'drawing' }
-B5Triangle >> aeDrawOn: aeCanvas [
-	"draw clock tick on frame"
-
-	| center |
-
-	super aeDrawOn: aeCanvas.
-	aeCanvas setOutskirtsCentered.
-	center := 200 @ 200.
-	aeCanvas pathFactory: [ :cairoContext |
-			cairoContext
-				moveTo: v1;
-				lineTo: v2;
-				lineTo: v3;
-				closePath ].
-	aeCanvas setBorderBlock: [
-			aeCanvas
-				setSourceColor: Color black;
-				setBorderWidth: 8 ].
-
-	aeCanvas drawFigure
-]
-
-{ #category : 'drawing' }
-B5Triangle >> aeFullDrawOn: aeCanvas [
-	
-
-	| center |
-	super aeFullDrawOn: aeCanvas.
-
-	center := 200 @ 200.
-	aeCanvas pathFactory: [ :cairoContext |
-			cairoContext
-				moveTo: v1;
-				lineTo: v2;
-				lineTo: v3;
-				closePath ].
-	aeCanvas setBorderBlock: [
-			aeCanvas
-				setSourceColor: Color black;
-				setBorderWidth: 8 ].
-
-	aeCanvas drawFigure
-]
-
 { #category : 'initialization' }
-B5Triangle >> initialize [ 
+B5Triangle >> initialize [
 
-super initialize .
-v1 := 100@100.
-v2 := 200@100.
-v3 := 150@200.
+	super initialize.
+	v1 := 300@300.
+	v2 := 400@100.
+	v3 := 500@300.
+	self geometry: (BlPolygonGeometry vertices: {
+				 self v1.
+				 self v2.
+				 self v3 }).
+	self background: (Color pink alpha: 0.2).
+	self border: (BlBorder paint: Color black width: 1)
+]
+
+{ #category : 'drawing' }
+B5Triangle >> redrawVertices [ 
+self geometry: (BlPolygonGeometry vertices: {
+				 self v1.
+				 self v2.
+				 self v3 }).
 ]
 
 { #category : 'accessing' }
@@ -73,7 +42,8 @@ B5Triangle >> v1 [
 { #category : 'accessing' }
 B5Triangle >> v1: aVertex [
 
-	v1 := aVertex 
+	v1 := aVertex.
+	self redrawVertices 
 ]
 
 { #category : 'accessing' }
@@ -85,7 +55,8 @@ B5Triangle >> v2 [
 { #category : 'accessing' }
 B5Triangle >> v2: aVertex [
 
-	v2 := aVertex 
+	v2 := aVertex.
+	self redrawVertices 
 ]
 
 { #category : 'accessing' }
@@ -97,5 +68,6 @@ B5Triangle >> v3 [
 { #category : 'accessing' }
 B5Triangle >> v3: aVertex [
 
-	v3 := aVertex 
+	v3 := aVertex.
+	self redrawVerices.
 ]
