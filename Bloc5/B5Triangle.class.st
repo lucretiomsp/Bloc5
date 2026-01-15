@@ -69,5 +69,5 @@ B5Triangle >> v3 [
 B5Triangle >> v3: aVertex [
 
 	v3 := aVertex.
-	self redrawVerices.
+	self redrawVertices
 ]
