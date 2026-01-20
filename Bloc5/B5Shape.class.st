@@ -9,12 +9,6 @@ Class {
 	#tag : 'Shapes'
 }
 
-{ #category : 'fixture' }
-B5Shape >> fill: aColor [
-
-self background: aColor.
-]
-
 { #category : 'accessing' }
 B5Shape >> strokeColor: aColor [
 	"change the width of the line"
