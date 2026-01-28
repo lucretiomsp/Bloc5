@@ -6,7 +6,7 @@ Class {
 	#superclass : 'Object',
 	#instVars : [
 		'child',
-		'centerCoordinates'
+		'cornerCoordinates'
 	],
 	#category : 'Bloc5-Modes',
 	#package : 'Bloc5',
@@ -14,13 +14,9 @@ Class {
 }
 
 { #category : 'calcul' }
-B5EllipseMode >> calulateCenterCoordinates [
+B5EllipseMode >> calculateCornerCoordinates [
 
-| w h |
-w := self child constraints horizontal.
-h := self child constraints vertical .
-	centerCoordinates := self child position x + w
-	                     @ (self child position y + h)
+self subclassResponsibility 
 ]
 
 { #category : 'calcul' }
