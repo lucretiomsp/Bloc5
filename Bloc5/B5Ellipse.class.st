@@ -7,19 +7,10 @@ creates a black Circle, 10@20 extent , positioned at the center of an NcSpace
 Class {
 	#name : 'B5Ellipse',
 	#superclass : 'B5Shape',
-	#instVars : [
-		'mode'
-	],
 	#category : 'Bloc5-Shapes',
 	#package : 'Bloc5',
 	#tag : 'Shapes'
 }
-
-{ #category : 'calcul' }
-B5Ellipse >> calculateCornerCoordinates [
-
-	^ self mode calculateCornerCoordinates
-]
 
 { #category : 'initialization' }
 B5Ellipse >> initialize [
@@ -30,15 +21,4 @@ B5Ellipse >> initialize [
 		background: Color black;
 		position: B5Space centerCoordinates;
 		extent: 20 @ 10
-]
-
-{ #category : 'accessing' }
-B5Ellipse >> mode [
-	^ mode
-]
-
-{ #category : 'accessing' }
-B5Ellipse >> mode: aB5EllipseMode [
-
-	mode := aB5EllipseMode new child: self.
 ]

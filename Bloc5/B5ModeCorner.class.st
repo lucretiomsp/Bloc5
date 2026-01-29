@@ -1,6 +1,6 @@
 Class {
-	#name : 'B5EllipseModeCorner',
-	#superclass : 'B5EllipseMode',
+	#name : 'B5ModeCorner',
+	#superclass : 'B5Mode',
 	#category : 'Bloc5-Modes',
 	#package : 'Bloc5',
 	#tag : 'Modes'

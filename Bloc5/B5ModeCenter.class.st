@@ -1,13 +1,13 @@
 Class {
-	#name : 'B5EllipseModeCenter',
-	#superclass : 'B5EllipseMode',
+	#name : 'B5ModeCenter',
+	#superclass : 'B5Mode',
 	#category : 'Bloc5-Modes',
 	#package : 'Bloc5',
 	#tag : 'Modes'
 }
 
 { #category : 'calcul' }
-B5EllipseModeCenter >> calculateCornerCoordinates [
+B5ModeCenter >> calculateCornerCoordinates [
 
 	| w h x y  |
 	w := self child constraints horizontal resizer size.

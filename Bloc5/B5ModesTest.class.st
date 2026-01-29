@@ -13,6 +13,6 @@ B5ModesTest >> testCalculateCornerCoordinates [
 	ellipse := B5Ellipse new
 		           position: 100 @ 100;
 		           extent: 80 @ 60.
-	ellipse mode: B5EllipseModeCenter .
+	ellipse mode: #center .
 	self assert: ellipse calculateCornerCoordinates equals: 140 @ 130
 ]
