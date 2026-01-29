@@ -55,6 +55,12 @@ B5Shape >> modesDictionary [
 	^ ModesDictionary
 ]
 
+{ #category : 'api - bounds' }
+B5Shape >> position: aPoint [
+
+super position: self mode calculateCornerCoordinates 
+]
+
 { #category : 'accessing' }
 B5Shape >> strokeColor: aColor [
 	"change the width of the line"
