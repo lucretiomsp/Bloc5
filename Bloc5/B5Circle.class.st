@@ -36,5 +36,5 @@ B5Circle >> initialize [
 		geometry: BlCircleGeometry new;
 		extent: 10 @ 10;
 		background: Color black;
-		extent: B5Space centerCoordinates
+		position: B5Space centerCoordinates
 ]

@@ -26,7 +26,7 @@ B5Mode >> child [
 ]
 
 { #category : 'calcul' }
-B5Mode >> child: aB5CircularShape [
+B5Mode >> child: aB5Shape [
 
-child := aB5CircularShape 
+	child := aB5Shape
 ]

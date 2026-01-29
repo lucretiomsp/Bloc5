@@ -1,3 +1,6 @@
+"
+Uses the position coordinates as the center of the shape.
+"
 Class {
 	#name : 'B5ModeCenter',
 	#superclass : 'B5Mode',

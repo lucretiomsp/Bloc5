@@ -30,12 +30,11 @@ B5Shape >> calculateCornerCoordinates [
 ]
 
 { #category : 'initialization' }
-B5Shape >> initialize [ 
+B5Shape >> initialize [
 
+	super initialize.
 
-super initialize.
-
-self mode: #center
+	
 ]
 
 { #category : 'accessing' }

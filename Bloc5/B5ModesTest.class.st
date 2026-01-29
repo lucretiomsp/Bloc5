@@ -9,10 +9,13 @@ Class {
 { #category : 'tests' }
 B5ModesTest >> testCalculateCornerCoordinates [
 
-	| ellipse |
+	| ellipse square |
 	ellipse := B5Ellipse new
 		           position: 100 @ 100;
 		           extent: 80 @ 60.
-	ellipse mode: #center .
-	self assert: ellipse calculateCornerCoordinates equals: 140 @ 130
+
+	
+
+	self assert: ellipse calculateCornerCoordinates equals: 140 @ 130.
+
 ]

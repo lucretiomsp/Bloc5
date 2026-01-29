@@ -14,11 +14,12 @@ Class {
 
 { #category : 'initialization' }
 B5Ellipse >> initialize [
+	"By default, the position of the ellipse is the shape's center"
 
 	super initialize.
 	self
 		geometry: BlCircleGeometry new;
 		background: Color black;
 		position: B5Space centerCoordinates;
-		extent: 20 @ 10
+		extent: 20 @ 10.
 ]
