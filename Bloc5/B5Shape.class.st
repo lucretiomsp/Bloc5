@@ -16,7 +16,7 @@ Class {
 }
 
 { #category : 'class initialization' }
-B5Shape class >> initialize [
+B5Shape class >> setModes [
 
 	ModesDictionary := Dictionary new.
 	ModesDictionary at: #center put: B5ModeCenter.
@@ -33,12 +33,12 @@ B5Shape >> calculateCornerCoordinates [
 B5Shape >> initialize [
 
 	super initialize.
-
-	
+	self mode: #center
 ]
 
 { #category : 'accessing' }
 B5Shape >> mode [
+
 	^ mode
 ]
 
@@ -57,7 +57,7 @@ B5Shape >> modesDictionary [
 { #category : 'api - bounds' }
 B5Shape >> position: aPoint [
 
-super position: self mode calculateCornerCoordinates 
+	super position:( self mode calculateCornerCoordinatesFor: aPoint)
 ]
 
 { #category : 'accessing' }

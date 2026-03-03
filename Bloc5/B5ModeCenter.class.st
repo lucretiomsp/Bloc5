@@ -21,3 +21,11 @@ B5ModeCenter >> calculateCornerCoordinates [
 	                     @ (y + (h / 2)).
 	^ cornerCoordinates
 ]
+
+{ #category : 'calcul' }
+B5ModeCenter >> calculateCornerCoordinatesFor: aPoint [
+    | w h |
+    w := self child constraints horizontal resizer size.
+    h := self child constraints vertical resizer size.
+    ^ aPoint - ((w / 2) @ (h / 2))
+]

@@ -7,15 +7,26 @@ Class {
 }
 
 { #category : 'tests' }
-B5ModesTest >> testCalculateCornerCoordinates [
+B5ModesTest >> testCalculateCornerCoordinatesForCenter [
 
-	| ellipse square |
-	ellipse := B5Ellipse new
-		           position: 100 @ 100;
-		           extent: 80 @ 60.
+	| ellipse |
+	ellipse := B5Circle new mode: #center.
+	ellipse
+		diameter: 50.
 
-	
 
-	self assert: ellipse calculateCornerCoordinates equals: 140 @ 130.
 
+	self assert: (ellipse mode calculateCornerCoordinatesFor: 200@100) equals: 175 @ 75
+]
+
+{ #category : 'tests' }
+B5ModesTest >> testCalculateCornerCoordinatesForCornerMode [
+
+	| mode |
+	mode := B5ModeCorner new.
+
+
+	self
+		assert: (mode calculateCornerCoordinatesFor: 100 @ 100)
+		equals: 100 @ 100
 ]

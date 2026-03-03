@@ -15,7 +15,12 @@ B5ModeCorner >> calculateCornerCoordinates [
 	| x y |
 	x := self child constraints position x.
 	y := self child constraints position y.
-	1halt.
+	
 	cornerCoordinates := x @ y.
 	^ cornerCoordinates
+]
+
+{ #category : 'calcul' }
+B5ModeCorner >> calculateCornerCoordinatesFor: aPoint [
+   ^ aPoint 
 ]

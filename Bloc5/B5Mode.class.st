@@ -20,6 +20,12 @@ self subclassResponsibility
 ]
 
 { #category : 'calcul' }
+B5Mode >> calculateCornerCoordinatesFor: aPoint [
+
+	self subclassResponsibility
+]
+
+{ #category : 'calcul' }
 B5Mode >> child [ 
 
 ^ child
