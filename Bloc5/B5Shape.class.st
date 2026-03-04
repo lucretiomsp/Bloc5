@@ -4,6 +4,8 @@ Super class for all high level classe with shapes a la p5js
 Class {
 	#name : 'B5Shape',
 	#superclass : 'BlElement',
+	#traits : 'B5EventHandler',
+	#classTraits : 'B5EventHandler classTrait',
 	#instVars : [
 		'mode'
 	],

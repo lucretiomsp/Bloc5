@@ -4,6 +4,8 @@ A BlSpace used to display the examples
 Class {
 	#name : 'B5Space',
 	#superclass : 'BlSpace',
+	#traits : 'B5EventHandler',
+	#classTraits : 'B5EventHandler classTrait',
 	#instVars : [
 		'frameRate'
 	],
