@@ -20,7 +20,7 @@ Class {
 { #category : 'class initialization' }
 B5Shape class >> initialize [ 
 
-super initialize .
+
 self setModes
 ]
 
