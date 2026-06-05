@@ -33,7 +33,7 @@ B5Triangle >> initialize [
 ]
 
 { #category : 'as yet unclassified' }
-B5Triangle >> redrawVertices [
+B5Triangle >> updateVertices [
 
 self
 		geometry: (BlPolygonGeometry vertices: {
@@ -51,8 +51,9 @@ B5Triangle >> v1 [
 { #category : 'accessing' }
 B5Triangle >> v1: aVertex [
 
-	v1 := aVertex.
-	self redrawVertices 
+ v1 := aVertex.
+    self geometry: (BlPolygonGeometry vertices: { v1. v2. v3 })
+
 ]
 
 { #category : 'accessing' }
@@ -65,7 +66,7 @@ B5Triangle >> v2 [
 B5Triangle >> v2: aVertex [
 
 	v2 := aVertex.
-	self redrawVertices 
+	self geometry: (BlPolygonGeometry vertices: { v1. v2. v3 })
 ]
 
 { #category : 'accessing' }
@@ -78,5 +79,5 @@ B5Triangle >> v3 [
 B5Triangle >> v3: aVertex [
 
 	v3 := aVertex.
-	self redrawVertices 
+	self geometry: (BlPolygonGeometry vertices: { v1. v2. v3 })
 ]
