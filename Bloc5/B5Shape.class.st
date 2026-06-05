@@ -18,6 +18,13 @@ Class {
 }
 
 { #category : 'class initialization' }
+B5Shape class >> initialize [ 
+
+super initialize .
+self setModes
+]
+
+{ #category : 'class initialization' }
 B5Shape class >> setModes [
 
 	ModesDictionary := Dictionary new.
