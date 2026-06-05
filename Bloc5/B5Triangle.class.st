@@ -32,7 +32,7 @@ B5Triangle >> initialize [
 		strokeWidth: 10
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'helper' }
 B5Triangle >> updateVertices [
 
 self
