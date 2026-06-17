@@ -10,7 +10,7 @@ Animation via B5Space>>drawAnimation:, configurable frame rate
 3D (raylib + FFI) planned.
 
 
-** Example: 3 shapes animating @ 30fps
+## Example: 3 shapes animating @ 30fps
 
 ```smalltalk
 | space circle square triangle t |
