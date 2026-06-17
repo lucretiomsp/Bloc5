@@ -13,12 +13,13 @@ Class {
 	#package : 'Bloc5'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'building' }
 B5Arc >> buildGeometry [
-    ^ BlAnnulusSectorGeometry new
-        fromAngle: startAngle;
-        toAngle: stopAngle;
-        yourself
+
+	^ BlAnnulusSectorGeometry new
+		  startAngle: startAngle;
+		  endAngle: stopAngle;
+		  yourself
 ]
 
 { #category : 'initialization' }
@@ -31,6 +32,13 @@ B5Arc >> initialize [
         geometry: self buildGeometry;
         background: Color black;
         extent: 200 @ 200
+]
+
+{ #category : 'accessing' }
+B5Arc >> mode: aSymbol [
+    "aSymbol: #open | #chord | #pie"
+    mode := aSymbol.
+    self geometry: self buildGeometry
 ]
 
 { #category : 'accessing' }
