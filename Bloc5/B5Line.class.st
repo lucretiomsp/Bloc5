@@ -7,6 +7,10 @@ creates a black line, 5px border,
 Class {
 	#name : 'B5Line',
 	#superclass : 'B5Shape',
+	#instVars : [
+		'startPoint',
+		'endPoint'
+	],
 	#category : 'Bloc5-Shapes',
 	#package : 'Bloc5',
 	#tag : 'Shapes'
@@ -26,9 +30,47 @@ B5Line class >> from: aStartPoint to: anEndPoint [
 	^ line
 ]
 
+{ #category : 'accessing' }
+B5Line >> endPoint [ 
+^ endPoint
+]
+
+{ #category : 'initialization' }
+B5Line >> endPoint: aPoint [
+
+	endPoint := aPoint.
+	self updateGeometry
+]
+
 { #category : 'instance creation' }
 B5Line >> from: aStartPoint to: anEndPoint [
-	"change the startPoint and endPoint of the line"
+    startPoint := aStartPoint.
+    endPoint := anEndPoint.
+    self updateGeometry
+]
 
-	self geometry:  (self geometry from: aStartPoint to: anEndPoint)
+{ #category : 'initialization' }
+B5Line >> initialize [
+    super initialize.
+    startPoint := 0 @ 0.
+    endPoint := 100 @ 100.
+    self updateGeometry
+]
+
+{ #category : 'accessing' }
+B5Line >> startPoint [ 
+^ startPoint 
+]
+
+{ #category : 'initialization' }
+B5Line >> startPoint: aPoint [
+    startPoint := aPoint.
+    self updateGeometry
+]
+
+{ #category : 'updating' }
+B5Line >> updateGeometry [
+    self geometry: (BlLineGeometry
+        from: startPoint
+        to: endPoint)
 ]
