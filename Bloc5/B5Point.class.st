@@ -14,18 +14,15 @@ Class {
 	#tag : 'Shapes'
 }
 
-{ #category : 'accessing' }
-B5Point >> at: aPoint [
-    position := aPoint.
-    self updateGeometry
-]
-
 { #category : 'initialization' }
 B5Point >> initialize [
-    super initialize.
-    position := 0 @ 0.
-    pointSize := 1.
-    self updateGeometry
+
+	super initialize.
+	position := 0@0.
+	pointSize := 1@1.
+	self position: position .
+	self extent: pointSize .
+	self geometry: BlCircleGeometry new
 ]
 
 { #category : 'accessing' }
@@ -36,18 +33,8 @@ B5Point >> pointSize [
 
 { #category : 'accessing' }
 B5Point >> pointSize: aNumber [
-    pointSize := aNumber.
-    self updateGeometry
-]
 
-{ #category : 'accessing' }
-B5Point >> position [   
-^ position
-]
-
-{ #category : 'updating' }
-B5Point >> updateGeometry [
-    self geometry: (BlCircleGeometry new
-        matchExtent: pointSize @ pointSize).
-    self position: position
+self extent: aNumber@aNumber .
+pointSize := aNumber 
+	
 ]

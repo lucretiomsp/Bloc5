@@ -8,10 +8,11 @@ Class {
 
 { #category : 'tests' }
 B5PointTest >> testAtSetterUpdatesPosition [
-    | point |
-    point := B5Point new.
-    point at: 7 @ 8.
-    self assert: point position equals: 7 @ 8
+
+	| point |
+	point := B5Point new.
+	point position: 7 @ 8.
+	self assert: point position equals: 7 @ 8
 ]
 
 { #category : 'accessing' }
