@@ -31,20 +31,98 @@ B5Tutorial class >> exampleSun [
 ]
 
 { #category : 'example' }
-B5Tutorial >> onMouseDownExample [
-	"Press down on the square: it shrinks while held."
+B5Tutorial >> onKeyDownExample [
+	"Click the circle to focus it, then press any key: random color."
+	<script: 'self new onKeyDownExample'>
+	| space circle colors |
+	space := B5Space new.
+	colors := { Color red. Color green. Color blue. Color orange. Color purple }.
+	circle := B5Circle new
+		          position: 300 @ 300;
+		          diameter: 100;
+		          background: Color black.
+ 
+	circle onKeyDown: [ :key | circle background: colors atRandom ].
+	circle onClick: [ :x :y | "click first to grab keyboard focus" ].
+ 
+	space root addChild: circle.
+	space show
+]
 
-	<script: 'self new onMouseDownExample'>
+{ #category : 'example' }
+B5Tutorial >> onKeyUpExample [
+	"Click the square to focus it. Hold and release any key: it flashes white."
+	<script: 'self new onKeyUpExample'>
 	| space square |
 	space := B5Space new.
 	square := B5Square new
 		          position: 300 @ 300;
 		          extent: 100 @ 100;
-		          background: Color blue.
-
-	square onMouseDown: [ :x :y | square extent: 70 @ 70 ].
-
+		          background: Color black.
+ 
+	square onKeyUp: [ :key | square background: Color white ].
+	square onClick: [ :x :y | "click first to grab keyboard focus" ].
+ 
 	space root addChild: square.
+	space show
+]
+
+{ #category : 'example' }
+B5Tutorial >> onMouseDownExample [ 
+"Press down on the square: it toggles between blue and red."
+	<script: 'self new onMouseDownExample'>
+	| space square isRed |
+	space := B5Space new.
+	isRed := false.
+ 
+	square := B5Square new
+		          position: 300 @ 300;
+		          extent: 100 @ 100;
+		          background: Color blue.
+ 
+	square onMouseDown: [ :x :y |
+		isRed := isRed not.
+		square background: (isRed ifTrue: [ Color red ] ifFalse: [ Color blue ]) ].
+ 
+	space root addChild: square.
+	space show
+]
+
+{ #category : 'example' }
+B5Tutorial >> onMouseEnterExample [
+	"Entering the rounded rect flashes it red ."
+	<script: 'self new onMouseEnterExample'>
+	| space rrect |
+	space := B5Space new.
+	rrect := B5Rect new
+		         position: 250 @ 250;
+		         extent: 150 @ 100;
+		         background: Color green.
+ 
+	rrect onMouseEnter: [ :x :y | rrect background: Color red].
+ 
+	space root addChild: rrect.
+	space show
+]
+
+{ #category : 'example' }
+B5Tutorial >> onMouseOverExample [
+	"Hover the ellipse: it toggles between black and yellow."
+	<script: 'self new onMouseOverExample'>
+	| space ellipse isYellow |
+	space := B5Space new.
+	isYellow := false.
+ 
+	ellipse := B5Ellipse new
+		           position: 300 @ 300;
+		           extent: 160 @ 90;
+		           background: Color black.
+ 
+	ellipse onMouseOver: [ :x :y |
+		isYellow := isYellow not.
+		ellipse background: (isYellow ifTrue: [ Color yellow ] ifFalse: [ Color black ]) ].
+ 
+	space root addChild: ellipse.
 	space show
 ]
 
@@ -63,5 +141,43 @@ B5Tutorial >> onMouseUpExample [
 	triangle onMouseUp: [ :x :y | triangle background: Color magenta ].
  
 	space root addChild: triangle.
+	space show
+]
+
+{ #category : 'example' }
+B5Tutorial >> onMouseWheelExample [
+	"Scroll over the circle to grow or shrink it."
+	<script: 'self new onMouseWheelExample'>
+	| space circle diameter |
+	space := B5Space new.
+	diameter := 80.
+	circle := B5Circle new
+		          position: 300 @ 300;
+		          diameter: diameter;
+		          background: Color green.
+ 
+	circle onMouseWheel: [ :evt |
+		evt isScrollUp ifTrue: [ diameter := diameter + 10 ].
+		evt isScrollDown ifTrue: [ diameter := diameter - 10 ].
+		circle diameter: diameter ].
+ 
+	space root addChild: circle.
+	space show
+]
+
+{ #category : 'example' }
+B5Tutorial >> onRightClickExample [
+	"Right click the square: it turns crimson."
+	<script: 'self new onSecondaryClickExample'>
+	| space square |
+	space := B5Space new.
+	square := B5Square new
+		          position: 300 @ 300;
+		          extent: 120 @ 120;
+		          background: Color blue.
+ 
+	square onRightClick: [ :x :y | square background: Color red ].
+ 
+	space root addChild: square.
 	space show
 ]
