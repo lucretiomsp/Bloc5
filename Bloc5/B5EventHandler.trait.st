@@ -24,7 +24,7 @@ B5EventHandler >> onKeyDown: aBlock [
  
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'event handling' }
 B5EventHandler >> onKeyUp: aBlock [
 	self requestFocus.
 	self
