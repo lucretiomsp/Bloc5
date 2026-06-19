@@ -71,16 +71,17 @@ B5Arc >> fillMode: aSymbol [
 
 { #category : 'initialization' }
 B5Arc >> initialize [
-    super initialize.
-    startAngle := 0.
-    stopAngle := Float pi.
-    fillMode := #pie.
-    diameter := 200.
-    self
-        extent: diameter @ diameter;
-        background: Color black;
-        geometry: self buildGeometry
- 
+
+	super initialize.
+	startAngle := 0.
+	stopAngle := Float pi.
+	fillMode := #pie.
+	diameter := 200.
+	self
+		extent: diameter @ diameter;
+		background: Color black;
+		geometry: self buildGeometry;
+		position: B5Space centerCoordinates
 ]
 
 { #category : 'accessing' }

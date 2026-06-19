@@ -18,11 +18,14 @@ Class {
 B5Point >> initialize [
 
 	super initialize.
-	position := 0@0.
-	pointSize := 1@1.
-	self position: position .
-	self extent: pointSize .
-	self geometry: BlCircleGeometry new
+	position := 0 @ 0.
+	pointSize := 1.
+	self
+		position: position;
+		extent: pointSize@pointSize ;
+		geometry: BlCircleGeometry new;
+		background: Color black;
+		position: B5Space centerCoordinates
 ]
 
 { #category : 'accessing' }
