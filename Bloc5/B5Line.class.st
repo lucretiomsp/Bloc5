@@ -51,10 +51,11 @@ B5Line >> from: aStartPoint to: anEndPoint [
 
 { #category : 'initialization' }
 B5Line >> initialize [
-    super initialize.
-    startPoint := 0 @ 0.
-    endPoint := 100 @ 100.
-    self updateGeometry
+
+	super initialize.
+	startPoint := 0 @ 0.
+	endPoint := 100 @ 100.
+ self geometry: (BlLineGeometry new from: startPoint to: startPoint ); background: Color black
 ]
 
 { #category : 'accessing' }

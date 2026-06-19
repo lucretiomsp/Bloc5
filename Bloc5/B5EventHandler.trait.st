@@ -9,6 +9,13 @@ Trait {
 }
 
 { #category : 'event handling' }
+B5EventHandler >> onClick: aBlock [
+	self
+		addEventHandlerOn: BlClickEvent
+		do: [ :evt | aBlock value: evt position x value: evt position y ]
+]
+
+{ #category : 'event handling' }
 B5EventHandler >> onMouseDown: aBlock [
     self
         addEventHandlerOn: BlMouseDownEvent
@@ -16,4 +23,47 @@ B5EventHandler >> onMouseDown: aBlock [
             aBlock
                 value: evt position x
                 value: evt position y ]
+]
+
+{ #category : 'event handling' }
+B5EventHandler >> onMouseEnter: aBlock [
+	self
+		addEventHandlerOn: BlMouseEnterEvent
+		do: [ :evt | aBlock value: evt position x value: evt position y ]
+]
+
+{ #category : 'event handling' }
+B5EventHandler >> onMouseLeave: aBlock [
+	self
+		addEventHandlerOn: BlMouseLeaveEvent
+		do: [ :evt | aBlock value: evt position x value: evt position y ]
+]
+
+{ #category : 'event handling' }
+B5EventHandler >> onMouseOver: aBlock [
+	self
+		addEventHandlerOn: BlMouseOverEvent
+		do: [ :evt | aBlock value: evt position x value: evt position y ]
+]
+
+{ #category : 'event handling' }
+B5EventHandler >> onMouseUp: aBlock [
+
+	self
+		addEventHandlerOn: BlMouseUpEvent
+		do: [ :evt | aBlock value: evt position x value: evt position y ]
+]
+
+{ #category : 'event handling' }
+B5EventHandler >> onMouseWheel: aBlock [
+	self
+		addEventHandlerOn: BlMouseWheelEvent
+		do: [ :evt | aBlock value: evt ]
+]
+
+{ #category : 'event handling' }
+B5EventHandler >> onRightClick: aBlock [
+	self
+		addEventHandlerOn: BlSecondaryClickEvent
+		do: [ :evt | aBlock value: evt position x value: evt position y ]
 ]
