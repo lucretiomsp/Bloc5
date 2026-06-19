@@ -16,6 +16,23 @@ B5EventHandler >> onClick: aBlock [
 ]
 
 { #category : 'event handling' }
+B5EventHandler >> onKeyDown: aBlock [
+	self requestFocus.
+	self
+		addEventHandlerOn: BlKeyDownEvent
+		do: [ :evt | aBlock value: evt key ]
+ 
+]
+
+{ #category : 'as yet unclassified' }
+B5EventHandler >> onKeyUp: aBlock [
+	self requestFocus.
+	self
+		addEventHandlerOn: BlKeyUpEvent
+		do: [ :evt | aBlock value: evt key ]
+]
+
+{ #category : 'event handling' }
 B5EventHandler >> onMouseDown: aBlock [
     self
         addEventHandlerOn: BlMouseDownEvent
