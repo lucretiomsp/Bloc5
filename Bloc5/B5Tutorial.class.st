@@ -31,6 +31,21 @@ B5Tutorial class >> exampleSun [
 ]
 
 { #category : 'example' }
+B5Tutorial >> followMouse [
+    <script: 'self new followMouse'>
+    | space dot |
+    space := B5Space new.
+    dot := B5Circle new
+        diameter: 40;
+        background: Color red;
+        yourself.
+    space root addChild: dot.
+    space drawAnimation: [
+        dot position: space mousePosition ].
+    space show
+]
+
+{ #category : 'example' }
 B5Tutorial >> onKeyDownExample [
 	"Click the circle to focus it, then press any key: random color."
 	<script: 'self new onKeyDownExample'>

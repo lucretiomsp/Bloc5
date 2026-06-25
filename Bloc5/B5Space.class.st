@@ -7,7 +7,8 @@ Class {
 	#traits : 'B5EventHandler',
 	#classTraits : 'B5EventHandler classTrait',
 	#instVars : [
-		'frameRate'
+		'frameRate',
+		'mousePosition'
 	],
 	#category : 'Bloc5-Space',
 	#package : 'Bloc5',
@@ -70,5 +71,25 @@ B5Space >> initialize [
 	super initialize.
 	self extent: self class extent.
 	self frameRate: 60.
-	self root background: Color white
+	self root background: Color white.
+	mousePosition := 0@0.
+self root addEventHandlerOn: BlMouseMoveEvent do: [ :event |
+    mousePosition := event localPosition ]
+]
+
+{ #category : 'accessing' }
+B5Space >> mousePosition [
+    ^ mousePosition
+
+]
+
+{ #category : 'accessing' }
+B5Space >> mouseX [
+    ^ mousePosition x
+
+]
+
+{ #category : 'accessing' }
+B5Space >> mouseY [
+    ^ mousePosition y
 ]
