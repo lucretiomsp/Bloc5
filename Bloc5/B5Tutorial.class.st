@@ -31,6 +31,18 @@ B5Tutorial class >> exampleSun [
 ]
 
 { #category : 'example' }
+B5Tutorial >> exampleBasic [
+<flag: 'needs image in image folder'>
+
+    | space img |
+    space := B5Space new.
+    img := B5Image fromFile: 'cat.png'.
+    img position: 50 @ 50.
+    space root addChild: img.
+    space show
+]
+
+{ #category : 'example' }
 B5Tutorial >> followMouse [
     <script: 'self new followMouse'>
     | space dot |
