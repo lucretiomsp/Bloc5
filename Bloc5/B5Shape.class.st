@@ -1,5 +1,19 @@
 "
-Super class for all high level classe with shapes a la p5js
+Super class for all high level classe with shapes a la p5js.
+## Transformation API (p5.js-style)
+---------------------------------
+Per-shape transforms, composed in the order messages are sent
+(not a fixed TRS order). Stored as an OrderedCollection of blocks
+in `transformations`, replayed each call via updateTransform.
+
+  translate: aPoint     - shift by aPoint
+  rotate: degrees       - rotate (degrees, not radians; p5 deviation)
+  scale: aNumberOrPoint - scale uniformly or per-axis
+  resetMatrix           - clear all transforms back to identity
+
+Origin is top-left, matching p5's coordinate system.
+Children transform with their parent automatically (Bloc scene graph).
+Deferred: shearX:, shearY:, applyMatrix: (no clean Bloc builder verb yet).
 "
 Class {
 	#name : 'B5Shape',
@@ -7,7 +21,8 @@ Class {
 	#traits : 'B5EventHandler',
 	#classTraits : 'B5EventHandler classTrait',
 	#instVars : [
-		'mode'
+		'mode',
+		'transformations'
 	],
 	#classVars : [
 		'ModesDictionary'
@@ -42,7 +57,8 @@ B5Shape >> calculateCornerCoordinates [
 B5Shape >> initialize [
 
 	super initialize.
-	self mode: #center
+	self mode: #center.
+	transformations := OrderedCollection new.
 ]
 
 { #category : 'accessing' }
@@ -69,6 +85,26 @@ B5Shape >> position: aPoint [
 	super position:( self mode calculateCornerCoordinatesFor: aPoint)
 ]
 
+{ #category : 'private' }
+B5Shape >> resetMatrix [
+    transformations := OrderedCollection new.
+    self updateTransform
+
+]
+
+{ #category : 'trans' }
+B5Shape >> rotate: degrees [
+    transformations add: [ :t | t rotateBy: degrees ].
+    self updateTransform
+]
+
+{ #category : 'trans' }
+B5Shape >> scale: aNumberOrPoint [
+    transformations add: [ :t | t scaleBy: aNumberOrPoint asPoint ].
+    self updateTransform
+
+]
+
 { #category : 'accessing' }
 B5Shape >> strokeColor: aColor [
 	"change the width of the line"
@@ -84,4 +120,17 @@ B5Shape >> strokeWidth: anInteger [
 | color |
 color := self border paint.
 self border: (BlBorder paint: color width: anInteger ).
+]
+
+{ #category : 'translate' }
+B5Shape >> translate: aPoint [
+    transformations add: [ :t | t translateBy: aPoint ].
+    self updateTransform.
+]
+
+{ #category : 'private' }
+B5Shape >> updateTransform [
+    self transformDo: [ :t |
+        t origin: BlAffineTransformationTopLeftOrigin new.
+        transformations do: [ :each | each value: t ] ]
 ]

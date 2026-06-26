@@ -2,7 +2,7 @@
 At the moment I have a set of executable examples
 "
 Class {
-	#name : 'B5Tutorial',
+	#name : 'B5EventExamples',
 	#superclass : 'Object',
 	#category : 'Bloc5-Examples',
 	#package : 'Bloc5',
@@ -10,7 +10,7 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
-B5Tutorial class >> exampleSun [
+B5EventExamples class >> exampleSun [
 
 	<script: 'self exampleSun'>
 	| space grass darkGreen sun |
@@ -31,7 +31,7 @@ B5Tutorial class >> exampleSun [
 ]
 
 { #category : 'example' }
-B5Tutorial >> exampleBasic [
+B5EventExamples >> exampleBasic [
 <flag: 'needs image in image folder'>
 
     | space img |
@@ -43,7 +43,7 @@ B5Tutorial >> exampleBasic [
 ]
 
 { #category : 'example' }
-B5Tutorial >> followMouse [
+B5EventExamples >> followMouse [
     <script: 'self new followMouse'>
     | space dot |
     space := B5Space new.
@@ -58,7 +58,7 @@ B5Tutorial >> followMouse [
 ]
 
 { #category : 'example' }
-B5Tutorial >> onKeyDownExample [
+B5EventExamples >> onKeyDownExample [
 	"Click the circle to focus it, then press any key: random color."
 	<script: 'self new onKeyDownExample'>
 	| space circle colors |
@@ -77,7 +77,7 @@ B5Tutorial >> onKeyDownExample [
 ]
 
 { #category : 'example' }
-B5Tutorial >> onKeyUpExample [
+B5EventExamples >> onKeyUpExample [
 	"Click the square to focus it. Hold and release any key: it flashes white."
 	<script: 'self new onKeyUpExample'>
 	| space square |
@@ -95,7 +95,7 @@ B5Tutorial >> onKeyUpExample [
 ]
 
 { #category : 'example' }
-B5Tutorial >> onMouseDownExample [ 
+B5EventExamples >> onMouseDownExample [ 
 "Press down on the square: it toggles between blue and red."
 	<script: 'self new onMouseDownExample'>
 	| space square isRed |
@@ -116,7 +116,7 @@ B5Tutorial >> onMouseDownExample [
 ]
 
 { #category : 'example' }
-B5Tutorial >> onMouseEnterExample [
+B5EventExamples >> onMouseEnterExample [
 	"Entering the rounded rect flashes it red ."
 	<script: 'self new onMouseEnterExample'>
 	| space rrect |
@@ -133,7 +133,7 @@ B5Tutorial >> onMouseEnterExample [
 ]
 
 { #category : 'example' }
-B5Tutorial >> onMouseOverExample [
+B5EventExamples >> onMouseOverExample [
 	"Hover the ellipse: it toggles between black and yellow."
 	<script: 'self new onMouseOverExample'>
 	| space ellipse isYellow |
@@ -154,7 +154,7 @@ B5Tutorial >> onMouseOverExample [
 ]
 
 { #category : 'example' }
-B5Tutorial >> onMouseUpExample [
+B5EventExamples >> onMouseUpExample [
 	"Release the mouse over the triangle: it changes color."
 	<script: 'self new onMouseUpExample'>
 	| space triangle |
@@ -172,7 +172,7 @@ B5Tutorial >> onMouseUpExample [
 ]
 
 { #category : 'example' }
-B5Tutorial >> onMouseWheelExample [
+B5EventExamples >> onMouseWheelExample [
 	"Scroll over the circle to grow or shrink it."
 	<script: 'self new onMouseWheelExample'>
 	| space circle diameter |
@@ -193,7 +193,7 @@ B5Tutorial >> onMouseWheelExample [
 ]
 
 { #category : 'example' }
-B5Tutorial >> onRightClickExample [
+B5EventExamples >> onRightClickExample [
 	"Right click the square: it turns crimson."
 	<script: 'self new onSecondaryClickExample'>
 	| space square |
