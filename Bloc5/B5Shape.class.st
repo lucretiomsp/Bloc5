@@ -79,6 +79,12 @@ B5Shape >> modesDictionary [
 	^ ModesDictionary
 ]
 
+{ #category : 'accessing' }
+B5Shape >> noFill [ 
+
+self background: Color transparent 
+]
+
 { #category : 'api - bounds' }
 B5Shape >> position: aPoint [
 
