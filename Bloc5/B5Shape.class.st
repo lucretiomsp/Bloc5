@@ -79,7 +79,7 @@ B5Shape >> modesDictionary [
 	^ ModesDictionary
 ]
 
-{ #category : 'accessing' }
+{ #category : 'background coloring' }
 B5Shape >> noFill [ 
 
 self background: Color transparent 
