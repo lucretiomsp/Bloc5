@@ -53,6 +53,13 @@ B5Shape >> calculateCornerCoordinates [
 	^ self mode calculateCornerCoordinates
 ]
 
+{ #category : 'background coloring' }
+B5Shape >> fill: aColor [
+
+"p5js synonim of background:"
+	self background: aColor 
+]
+
 { #category : 'initialization' }
 B5Shape >> initialize [
 
@@ -111,8 +118,8 @@ B5Shape >> scale: aNumberOrPoint [
 
 ]
 
-{ #category : 'accessing' }
-B5Shape >> strokeColor: aColor [
+{ #category : 'bordering' }
+B5Shape >> stroke: aColor [
 	"change the width of the line"
 
 	| borderWidth |
@@ -120,8 +127,8 @@ B5Shape >> strokeColor: aColor [
 	self border: (BlBorder paint: aColor width: borderWidth)
 ]
 
-{ #category : 'accessing' }
-B5Shape >> strokeWidth: anInteger [
+{ #category : 'bordering' }
+B5Shape >> strokeWeight: anInteger [
 "change the width of the line"
 | color |
 color := self border paint.

@@ -10,7 +10,7 @@ Class {
 B5ShapesTests >> testNcCircleBorder [
 
 	| ncCircle |
-	ncCircle := B5Circle new strokeWidth: 5; strokeColor: Color red.
+	ncCircle := B5Circle new strokeWeight: 5; stroke: Color red.
 	self assert: ncCircle border width equals: 5.
 	self assert: ncCircle border paint color equals: Color red
 ]

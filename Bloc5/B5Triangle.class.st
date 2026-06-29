@@ -28,8 +28,8 @@ B5Triangle >> initialize [
 						 self v2.
 						 self v3 });
 		background: Color red;
-		strokeColor: Color black;
-		strokeWidth: 10
+		stroke: Color black;
+		strokeWeight: 10
 ]
 
 { #category : 'helper' }
