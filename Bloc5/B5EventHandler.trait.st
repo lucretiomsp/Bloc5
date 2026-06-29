@@ -43,6 +43,16 @@ B5EventHandler >> onMouseDown: aBlock [
 ]
 
 { #category : 'event handling' }
+B5EventHandler >> onMouseDragged: aBlock [
+    "p5-style mouseDragged: fires continuously while the pointer moves with button held.
+     Registers a drag-start handler to arm the gesture, then forwards each drag event."
+    self addEventHandlerOn: BlDragStartEvent do: [ :event | event consumed: true ].
+    self addEventHandlerOn: BlDragEvent do: [ :event |
+        event consumed: true.
+        aBlock value: event ]
+]
+
+{ #category : 'event handling' }
 B5EventHandler >> onMouseEnter: aBlock [
 	self
 		addEventHandlerOn: BlMouseEnterEvent
