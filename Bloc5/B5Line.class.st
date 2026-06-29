@@ -15,6 +15,19 @@ Class {
 	#tag : 'Shapes'
 }
 
+{ #category : 'instance creation' }
+B5Line class >> from: aPoint to: aPoint2 [
+
+	^ self new
+		startPoint: aPoint;
+		endPoint: aPoint2
+]
+
+{ #category : 'accessing' }
+B5Line >> endPoint [
+	^ endPoint
+]
+
 { #category : 'accessing' }
 B5Line >> endPoint: aPoint [
 
@@ -34,6 +47,11 @@ B5Line >> initialize [
 	self
 		geometry: (BlLineGeometry from: 10 @ 10 to: 200 @ 100);
 		border: (BlBorder paint: Color orange width: 6)
+]
+
+{ #category : 'accessing' }
+B5Line >> startPoint [
+	^ startPoint
 ]
 
 { #category : 'accessing' }

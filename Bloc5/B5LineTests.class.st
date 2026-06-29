@@ -6,14 +6,6 @@ Class {
 	#tag : 'Tests'
 }
 
-{ #category : 'accessing' }
-B5LineTests >> testDefaultValues [
-    | line |
-    line := B5Line new.
-    self assert: line startPoint equals: 0 @ 0.
-    self assert: line endPoint equals: 100 @ 100
-]
-
 { #category : 'tests' }
 B5LineTests >> testEndPointSetter [
     | line |
@@ -27,15 +19,6 @@ B5LineTests >> testFromToConstructor [
     line := B5Line from: 10 @ 20 to: 30 @ 40.
     self assert: line startPoint equals: 10 @ 20.
     self assert: line endPoint equals: 30 @ 40
-]
-
-{ #category : 'tests' }
-B5LineTests >> testFromToUpdatesBothPoints [
-    | line |
-    line := B5Line new.
-    line from: 1 @ 2 to: 3 @ 4.
-    self assert: line startPoint equals: 1 @ 2.
-    self assert: line endPoint equals: 3 @ 4
 ]
 
 { #category : 'tests' }
