@@ -1,5 +1,5 @@
 Class {
-	#name : 'B5ModesTest',
+	#name : 'B5ModesTests',
 	#superclass : 'TestCase',
 	#category : 'Bloc5-Tests',
 	#package : 'Bloc5',
@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : 'tests' }
-B5ModesTest >> testCalculateCornerCoordinatesForCenter [
+B5ModesTests >> testCalculateCornerCoordinatesForCenter [
 
 	| ellipse |
 	ellipse := B5Circle new mode: #center.
@@ -20,7 +20,7 @@ B5ModesTest >> testCalculateCornerCoordinatesForCenter [
 ]
 
 { #category : 'tests' }
-B5ModesTest >> testCalculateCornerCoordinatesForCornerMode [
+B5ModesTests >> testCalculateCornerCoordinatesForCornerMode [
 
 	| mode |
 	mode := B5ModeCorner new.

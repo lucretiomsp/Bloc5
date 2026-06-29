@@ -1,5 +1,5 @@
 Class {
-	#name : 'B5ShapesTest',
+	#name : 'B5ShapesTests',
 	#superclass : 'TestCase',
 	#category : 'Bloc5-Tests',
 	#package : 'Bloc5',
@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : 'tests' }
-B5ShapesTest >> testNcCircleBorder [
+B5ShapesTests >> testNcCircleBorder [
 
 	| ncCircle |
 	ncCircle := B5Circle new strokeWidth: 5; strokeColor: Color red.
@@ -16,7 +16,7 @@ B5ShapesTest >> testNcCircleBorder [
 ]
 
 { #category : 'tests' }
-B5ShapesTest >> testNcCircleCreation [
+B5ShapesTests >> testNcCircleCreation [
 
 	| blocEllipse ncEllipse |
 	blocEllipse := BlElement new geometry: BlCircleGeometry new.
@@ -26,7 +26,7 @@ B5ShapesTest >> testNcCircleCreation [
 ]
 
 { #category : 'tests' }
-B5ShapesTest >> testNcCircleDiameter [
+B5ShapesTests >> testNcCircleDiameter [
 
 	| ncCircle |
 	ncCircle := B5Circle new diameter: 30.
@@ -34,7 +34,7 @@ B5ShapesTest >> testNcCircleDiameter [
 ]
 
 { #category : 'tests' }
-B5ShapesTest >> testNcLineCreation [
+B5ShapesTests >> testNcLineCreation [
 
 	| blocLine ncLine |
 	blocLine := BlElement new
@@ -53,7 +53,7 @@ B5ShapesTest >> testNcLineCreation [
 ]
 
 { #category : 'tests' }
-B5ShapesTest >> testNcRectCreation [
+B5ShapesTests >> testNcRectCreation [
 
 	| blocRect ncRect |
 	blocRect := BlElement new geometry: BlRectangleGeometry new.

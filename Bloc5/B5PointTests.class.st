@@ -1,5 +1,5 @@
 Class {
-	#name : 'B5PointTest',
+	#name : 'B5PointTests',
 	#superclass : 'TestCase',
 	#category : 'Bloc5-Tests',
 	#package : 'Bloc5',
@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : 'accessing' }
-B5PointTest >> testDefaultValues [
+B5PointTests >> testDefaultValues [
 
 	| point |
 	point := B5Point new.
@@ -16,14 +16,14 @@ B5PointTest >> testDefaultValues [
 ]
 
 { #category : 'tests' }
-B5PointTest >> testGeometryIsCircleGeometry [
+B5PointTests >> testGeometryIsCircleGeometry [
     | point |
     point := B5Point new.
     self assert: point geometry class equals: BlCircleGeometry
 ]
 
 { #category : 'tests' }
-B5PointTest >> testPointSizeSetter [
+B5PointTests >> testPointSizeSetter [
     | point |
     point := B5Point new pointSize: 4; yourself.
     self assert: point pointSize equals: 4
