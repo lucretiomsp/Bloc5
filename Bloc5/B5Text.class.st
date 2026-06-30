@@ -7,6 +7,8 @@ B5Text >> comment
 Class {
 	#name : 'B5Text',
 	#superclass : 'BlTextElement',
+	#traits : 'B5EventHandler',
+	#classTraits : 'B5EventHandler classTrait',
 	#instVars : [
 		'fontSize',
 		'fontName',
@@ -98,11 +100,11 @@ self string: (textString asRopedText
 { #category : 'accessing' }
 B5Text >> text: aString [
 
-	textString  := aString .
+	textString := aString.
 
 
 	self string: (aString asRopedText
 			 foreground: textColor;
-			 fontSize: 16;
-			 fontName: 'Helvetica')
+			 fontSize: fontSize ;
+			 fontName: fontName )
 ]

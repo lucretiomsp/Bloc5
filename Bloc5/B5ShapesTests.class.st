@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : 'tests' }
-B5ShapesTests >> testNcCircleBorder [
+B5ShapesTests >> testB5CircleBorder [
 
 	| ncCircle |
 	ncCircle := B5Circle new strokeWeight: 5; stroke: Color red.
