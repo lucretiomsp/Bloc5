@@ -13,7 +13,8 @@ Class {
 		'textElement',
 		'fillColor',
 		'string',
-		'textString'
+		'textString',
+		'textColor'
 	],
 	#category : 'Bloc5-Shapes',
 	#package : 'Bloc5',
@@ -30,9 +31,8 @@ B5Text class >> string: aString at: aPoint [
 
 { #category : 'accessing' }
 B5Text >> fill: aColor [
-	"p5: fill() sets text colour → glyph foreground (not background:)."
-	fillColor := aColor.
-	self updateText
+
+self background: aColor
 ]
 
 { #category : 'accessing' }
@@ -44,11 +44,10 @@ B5Text >> fontName [
 B5Text >> fontName: aFontName [
 
 	fontName := aFontName.
-	text := textString asRopedText
-		        foreground: Color orange;
-		        fontSize: self fontSize;
-		        fontName: aFontName .
-		self string: text
+	self string: (textString asRopedText
+			 foreground: textColor;
+			 fontSize: self fontSize;
+			 fontName: aFontName)
 ]
 
 { #category : 'accessing' }
@@ -58,11 +57,14 @@ B5Text >> fontSize [
 ]
 
 { #category : 'accessing' }
-B5Text >> fontSize: aNumber [
-	fontSize := aNumber.
-	self updateText
+B5Text >> fontSize: anInteger [
 
+	fontSize := anInteger.
 
+	self string: ( textString asRopedText
+		        foreground: Color orange;
+		        fontSize: anInteger;
+		        fontName:fontName )
 ]
 
 { #category : 'initialization' }
@@ -73,24 +75,34 @@ B5Text >> initialize [
 	fillColor := Color black.
 	fontSize := 16.
 	fontName := 'Helvetica'.
-	textString  := 'Welcome to BLOC5'.
-	text := textString  asRopedText 
+	textString := 'Welcome to BLOC5'.
+	textColor  := Color orange.
+	text := textString asRopedText
 		        foreground: Color orange;
 		        fontSize: 16;
 		        fontName: 'Helvetica'.
 	self string: text
 ]
 
+{ #category : 'bordering' }
+B5Text >> stroke: aColor [
+
+	textColor := aColor.
+	
+self string: (textString asRopedText
+			 foreground: aColor;
+			 fontSize: fontSize ;
+			 fontName: fontName)
+]
+
 { #category : 'accessing' }
 B5Text >> text: aString [
-	text := aString asRopedText
-		        foreground: Color orange;
-		        fontSize: self fontSize;
-		        fontName: self fontName.
+
+	textString  := aString .
 
 
 	self string: (aString asRopedText
-			 foreground: Color orange;
+			 foreground: textColor;
 			 fontSize: 16;
 			 fontName: 'Helvetica')
 ]

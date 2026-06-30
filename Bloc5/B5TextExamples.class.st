@@ -10,11 +10,18 @@ Class {
 }
 
 { #category : 'examples' }
-B5TextExamples >> exampleHi [
-	"The text 'hi', nice and big."
+B5TextExamples >> exampleHola [
 
-	<script: 'self new exampleHi openInSpace'>
-	^ B5Text string: 'Hola Amigaaaaaaaaaaaaaaaaaaa !' at: 90 @ 90
-	"textSize: 120;
-		  yourself"
+	<script: 'self new exampleHola'>
+	| space tx |
+	space := B5Space new.
+	tx := B5Text new
+		      text: 'Hola Ameeeeeeeeega';
+		      fontSize: 49;
+		      fill: Color red;
+		      stroke: Color green.
+
+	space addChild: tx.
+
+	space show
 ]
