@@ -1,3 +1,6 @@
+"
+Original simple and complex shapes examples
+"
 Class {
 	#name : 'B5ShapesExamples',
 	#superclass : 'Object',
@@ -5,3 +8,88 @@ Class {
 	#package : 'Bloc5',
 	#tag : 'Examples'
 }
+
+{ #category : 'as yet unclassified' }
+B5ShapesExamples >> beeExample [
+
+	<script: 'self new beeExample'>
+	| space dark gold |
+	space := B5Space new.
+	space root background: (Color
+			 r: 159
+			 g: 212
+			 b: 240
+			 range: 255).
+	dark := Color r: 0.17 g: 0.17 b: 0.17.
+	gold := Color r: 0.96 g: 0.71 b: 0.
+
+	"soft glow (6 translucent passes)"
+	6 to: 1 by: -1 do: [ :i |
+			space root addChild: (B5Ellipse new
+					 extent: 150 + (i * 6) @ (120 + (i * 6));
+					 fill: (Color
+							  r: 1
+							  g: 0.82
+							  b: 0.31
+							  alpha: 0.05);
+					 position: 300 @ 300) ].
+
+	"body"
+	space root addChild: (B5Ellipse new
+			 extent: 150 @ 118;
+			 fill: gold;
+			 position: 300 @ 300).
+
+	"stripes"
+	{
+		(272 @ 300 -> (22 @ 96)).
+		(308 @ 300 -> (24 @ 104)).
+		(344 @ 300 -> (18 @ 78)) } do: [ :a |
+			space root addChild: (B5Rect new
+					 extent: a value;
+					 fill: dark;
+					 position: a key) ].
+
+	"longer stinger (tip points right, away from body)"
+	space root addChild: (B5Triangle new
+			 v1: 418 @ 300;
+			 v2: 373 @ 293;
+			 v3: 373 @ 307;
+			 fill: dark;
+			 strokeWeight: 0;
+			 yourself).
+
+	"head"
+	space root addChild: (B5Ellipse new
+			 extent: 64 @ 70;
+			 fill: dark;
+			 position: 228 @ 300).
+
+	"antennae (border set directly — B5Line's stroke:/strokeWeight: read stale ivars)"
+	space root addChild: ((B5Line from: 218 @ 272 to: 198 @ 236)
+			 border: (BlBorder paint: dark width: 3);
+			 yourself).
+	space root addChild: ((B5Line from: 232 @ 270 to: 222 @ 230)
+			 border: (BlBorder paint: dark width: 3);
+			 yourself).
+	space root addChild: (B5Circle new
+			 diameter: 9;
+			 fill: dark;
+			 position: 198 @ 236).
+	space root addChild: (B5Circle new
+			 diameter: 9;
+			 fill: dark;
+			 position: 222 @ 230).
+
+	"two eyes"
+	space root addChild: (B5Ellipse new
+			 extent: 18 @ 22;
+			 fill: Color white;
+			 position: 215 @ 288).
+	space root addChild: (B5Ellipse new
+			 extent: 18 @ 22;
+			 fill: Color white;
+			 position: 241 @ 288).
+
+	space show
+]
