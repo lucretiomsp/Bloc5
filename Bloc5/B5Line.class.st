@@ -36,6 +36,12 @@ B5Line >> endPoint: aPoint [
 	Object inform: 'CHanged end point'
 ]
 
+{ #category : 'accessing' }
+B5Line >> from: aPoint to: anotherPoint [
+
+self startPoint:  aPoint ; endPoint: anotherPoint .
+]
+
 { #category : 'initialization' }
 B5Line >> initialize [
 

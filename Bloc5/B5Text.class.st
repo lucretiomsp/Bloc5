@@ -20,9 +20,9 @@ Class {
 }
 
 { #category : 'instance creation' }
-B5Text class >> string: aString at: aPoint [
+B5Text class >> text: aString at: aPoint [
 	^ self new
-		string: aString;
+		text: aString;
 		position: aPoint;
 		yourself
 ]
@@ -51,7 +51,7 @@ B5Text >> initialize [
 ]
 
 { #category : 'accessing' }
-B5Text >> string: aString [
+B5Text >> text: aString [
 	string := aString.
 	self updateText
 

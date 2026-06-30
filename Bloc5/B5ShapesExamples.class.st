@@ -9,7 +9,7 @@ Class {
 	#tag : 'Examples'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'example' }
 B5ShapesExamples >> beeExample [
 
 	<script: 'self new beeExample'>

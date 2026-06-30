@@ -14,7 +14,7 @@ B5TextExamples >> exampleHi [
 	"The text 'hi', nice and big."
 
 	<script: 'self new exampleHi openInSpace'>
-	^ B5Text string: 'Hola Amigaaaaaaaaaaaaaaaaaaa !' at: 90 @ 90
+	^ B5Text text: 'Hola Amigaaaaaaaaaaaaaaaaaaa !' at: 90 @ 90
 	"textSize: 120;
 		  yourself"
 ]
