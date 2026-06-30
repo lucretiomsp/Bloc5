@@ -8,11 +8,12 @@ Class {
 	#name : 'B5Text',
 	#superclass : 'BlTextElement',
 	#instVars : [
-		'string',
 		'fontSize',
 		'fontName',
 		'textElement',
-		'fillColor'
+		'fillColor',
+		'string',
+		'textString'
 	],
 	#category : 'Bloc5-Shapes',
 	#package : 'Bloc5',
@@ -20,17 +21,11 @@ Class {
 }
 
 { #category : 'instance creation' }
-B5Text class >> text: aString at: aPoint [
+B5Text class >> string: aString at: aPoint [
 	^ self new
-		text: aString;
+		string: aString;
 		position: aPoint;
 		yourself
-]
-
-{ #category : 'private' }
-B5Text >> buildGeometry [
-	"Text has no Bloc geometry — it renders via the child BlTextElement."
-	^ self
 ]
 
 { #category : 'accessing' }
@@ -40,45 +35,62 @@ B5Text >> fill: aColor [
 	self updateText
 ]
 
-{ #category : 'initialization' }
-B5Text >> initialize [
-	super initialize.
-	string := ''.
-	fillColor := Color black.
-	fontSize := 12.
-	fontName := nil.
-	self updateText
+{ #category : 'accessing' }
+B5Text >> fontName [ 
+^ fontName
 ]
 
 { #category : 'accessing' }
-B5Text >> text: aString [
-	string := aString.
-	self updateText
+B5Text >> fontName: aFontName [
 
-]
-
-{ #category : 'accessing' }
-B5Text >> textFont: aFontName [
 	fontName := aFontName.
-	self updateText
+	text := textString asRopedText
+		        foreground: Color orange;
+		        fontSize: self fontSize;
+		        fontName: aFontName .
+		self string: text
 ]
 
 { #category : 'accessing' }
-B5Text >> textSize: aNumber [
+B5Text >> fontSize [ 
+
+^ fontSize 
+]
+
+{ #category : 'accessing' }
+B5Text >> fontSize: aNumber [
 	fontSize := aNumber.
 	self updateText
 
 
 ]
 
-{ #category : 'private' }
-B5Text >> updateText [
-	"Rebuild + restyle rope (Bloc drops attributes on text change), push to self. Self-measures."
-	| rope |
-	rope := string asRopedText.
-	rope
-		foreground: fillColor;
-		fontSize: fontSize.
-	fontName ifNotNil: [ rope fontName: fontName ].
-	self text: rope
+{ #category : 'initialization' }
+B5Text >> initialize [
+
+	super initialize.
+	string := ''.
+	fillColor := Color black.
+	fontSize := 16.
+	fontName := 'Helvetica'.
+	textString  := 'Welcome to BLOC5'.
+	text := textString  asRopedText 
+		        foreground: Color orange;
+		        fontSize: 16;
+		        fontName: 'Helvetica'.
+	self string: text
+]
+
+{ #category : 'accessing' }
+B5Text >> text: aString [
+	text := aString asRopedText
+		        foreground: Color orange;
+		        fontSize: self fontSize;
+		        fontName: self fontName.
+
+
+	self string: (aString asRopedText
+			 foreground: Color orange;
+			 fontSize: 16;
+			 fontName: 'Helvetica')
 ]
