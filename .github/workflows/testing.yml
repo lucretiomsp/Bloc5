@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hpi-swa/setup-smalltalkCI@v1
+        with:
+          smalltalk-image: Pharo64-13
+      - run: smalltalkci -s Pharo64-13
+        shell: bash
+        timeout-minutes: 15
