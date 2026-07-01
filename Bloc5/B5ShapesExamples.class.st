@@ -93,3 +93,55 @@ B5ShapesExamples >> beeExample [
 
 	space show
 ]
+
+{ #category : 'example' }
+B5ShapesExamples >> curveFromArray [
+    <script: 'self new curveFromArray'>
+    | space pts |
+    pts := { 5@60. 73@24. 73@61. 15@65 }.
+    space := BlSpace new.
+    space root addChild: (B5Curve points: pts).
+    space show
+]
+
+{ #category : 'example' }
+B5ShapesExamples >> lineCaps [
+
+	<script: 'self new lineCaps'>
+	| top middle bottom space |
+	space := B5Space new.
+	top := (B5Line from: 20 @ 30 to: 200 @ 30)
+		       strokeWeight: 12;
+		       stroke: Color black;
+		       strokeCap: #round;
+		       yourself.
+	middle := (B5Line from: 20 @ 70 to: 200 @ 70)
+		          strokeWeight: 12;
+		          stroke: Color black;
+		          strokeCap: #square;
+		          yourself.
+	bottom := (B5Line from: 20 @ 110 to: 200 @ 110)
+		          strokeWeight: 12;
+		          stroke: Color black;
+		          strokeCap: #project;
+		          yourself.
+	space
+		addChild: top;
+		addChild: middle;
+		addChild: bottom.
+		space show.
+]
+
+{ #category : 'example' }
+B5ShapesExamples >> simpleCurve [
+
+	<script: 'self new simpleCurve'>
+	| space |
+	space := BlSpace new.
+	space root addChild: (B5Curve
+			 p1: 5 @ 60
+			 p2: 73 @ 24
+			 p3: 73 @ 61
+			 p4: 15 @ 65).
+	space show
+]
