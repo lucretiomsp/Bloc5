@@ -22,7 +22,9 @@ Class {
 	#classTraits : 'B5EventHandler classTrait',
 	#instVars : [
 		'mode',
-		'transformations'
+		'transformations',
+		'stroke',
+		'strokeWeight'
 	],
 	#classVars : [
 		'ModesDictionary'

@@ -4,11 +4,11 @@ I correspond to p5js **line**
 Class {
 	#name : 'B5Line',
 	#superclass : 'B5Shape',
+	#traits : 'B5EventHandler',
+	#classTraits : 'B5EventHandler classTrait',
 	#instVars : [
 		'startPoint',
-		'endPoint',
-		'strokeWeight',
-		'stroke'
+		'endPoint'
 	],
 	#category : 'Bloc5-Shapes',
 	#package : 'Bloc5',

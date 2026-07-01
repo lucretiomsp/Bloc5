@@ -36,6 +36,11 @@ B5Space >> addChild: aBlEelement [
 self root addChild: aBlEelement
 ]
 
+{ #category : 'adding' }
+B5Space >> addChildren: aCollection [ 
+	self root addChildren: aCollection 
+]
+
 { #category : 'accessing' }
 B5Space >> centerCoordinates [
 
