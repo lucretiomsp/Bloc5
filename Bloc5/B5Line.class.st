@@ -55,9 +55,8 @@ B5Line >> initialize [
 
 { #category : 'private' }
 B5Line >> refreshGeometry [
-
-self
-		geometry: (BlLineGeometry from: startPoint to: endPoint )
+    self geometry: (BlLineGeometry from: startPoint to: endPoint).
+    self buildOpenPathBorder
 ]
 
 { #category : 'accessing' }
@@ -74,12 +73,12 @@ B5Line >> startPoint: aPoint [
 
 { #category : 'accessing' }
 B5Line >> stroke: aColor [
-
-self border: (BlBorder paint: aColor width: strokeWeight)
+    stroke := aColor.
+    self buildOpenPathBorder
 ]
 
 { #category : 'accessing' }
 B5Line >> strokeWeight: anInteger [
-
-self border: (BlBorder paint: stroke width: anInteger)
+    strokeWeight := anInteger.
+    self buildOpenPathBorder
 ]

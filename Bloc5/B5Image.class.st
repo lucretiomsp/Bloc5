@@ -35,7 +35,7 @@ Class {
 	#name : 'B5Image',
 	#superclass : 'B5Shape',
 	#instVars : [
-		'form',
+		'filePath',
 		'sourceRect'
 	],
 	#category : 'Bloc5-Shapes',
@@ -44,19 +44,33 @@ Class {
 }
 
 { #category : 'instance creation' }
-B5Image class >> fromFile: aFileName [
-    ^ self new form: (Form fromFileNamed: aFileName)
+B5Image class >> fromFilePath: aFileName [
+    ^ self new fromFilePath: (Form fromFileNamed: aFileName)
 ]
 
 { #category : 'accessing' }
-B5Image >> form [ 
-^ form
+B5Image >> filePath [ 
+
+^ filePath 
 ]
 
 { #category : 'accessing' }
-B5Image >> form: aForm [
-    form := aForm.
-    self updateGeometry
+B5Image >> fromFilePath: aPath [
+
+	filePath := aPath.
+	self refreshGeometry
+]
+
+{ #category : 'change reporting' }
+B5Image >> refreshGeometry [
+
+	| f |
+	filePath ifNil: [ ^ self ].
+	f := sourceRect ifNil: [ filePath ] ifNotNil: [ filePath copy: sourceRect ].
+	(self extent isNil or: [ self extent = (0 @ 0) ])
+		ifTrue: [ self extent: f extent ]
+		ifFalse: [ f := f scaledToSize: self extent ].
+	self background: f
 ]
 
 { #category : 'accessing' }
@@ -67,16 +81,5 @@ B5Image >> sourceRect [
 { #category : 'accessing' }
 B5Image >> sourceRect: aRectangle [
     sourceRect := aRectangle.
-    self updateGeometry
-]
-
-{ #category : 'change reporting' }
-B5Image >> updateGeometry [
-    | f |
-    form ifNil: [ ^ self ].
-    f := sourceRect ifNil: [ form ] ifNotNil: [ form copy: sourceRect ].
-    (self extent isNil or: [ self extent = (0 @ 0) ])
-        ifTrue:  [ self extent: f extent ]
-        ifFalse: [ f := f scaledToSize: self extent ].
-    self background: f
+    self refreshGeometry
 ]

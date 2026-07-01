@@ -121,12 +121,22 @@ B5Shape >> scale: aNumberOrPoint [
 ]
 
 { #category : 'bordering' }
+B5Shape >> stroke [ 
+^ stroke
+]
+
+{ #category : 'bordering' }
 B5Shape >> stroke: aColor [
 	"change the width of the line"
 
 	| borderWidth |
 	borderWidth := self border width.
 	self border: (BlBorder paint: aColor width: borderWidth)
+]
+
+{ #category : 'bordering' }
+B5Shape >> strokeWeight [ 
+^ strokeWeight
 ]
 
 { #category : 'bordering' }

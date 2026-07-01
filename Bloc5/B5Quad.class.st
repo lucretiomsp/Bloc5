@@ -24,33 +24,33 @@ B5Quad >> initialize [
     v2 := 150 @ 0.
     v3 := 150 @ 100.
     v4 := 50 @ 100.
-    self updateGeometry.
+    self refreshGeometry.
     self background: Color black
 ]
 
 { #category : 'change reporting' }
-B5Quad >> updateGeometry [
+B5Quad >> refreshGeometry [
     self geometry: (BlPolygonGeometry vertices: { v1. v2. v3. v4 })
 ]
 
 { #category : 'accessing' }
 B5Quad >> v1: aPoint [  
-v1 := aPoint. self updateGeometry
+v1 := aPoint. self refreshGeometry
 ]
 
 { #category : 'accessing' }
 B5Quad >> v2: aPoint [  
-v2 := aPoint. self updateGeometry
+v2 := aPoint. self refreshGeometry
 ]
 
 { #category : 'accessing' }
 B5Quad >> v3: aPoint [  
-v3 := aPoint. self updateGeometry
+v3 := aPoint. self refreshGeometry
 ]
 
 { #category : 'accessing' }
 B5Quad >> v4: aPoint [  
-v4 := aPoint. self updateGeometry
+v4 := aPoint. self refreshGeometry
 ]
 
 { #category : 'instance creation' }
@@ -59,5 +59,5 @@ B5Quad >> vertices: anArray [
     v2 := anArray second.
     v3 := anArray third.
     v4 := anArray fourth.
-    self updateGeometry
+    self refreshGeometry
 ]

@@ -36,7 +36,7 @@ B5EventExamples >> exampleBasic [
 
     | space img |
     space := B5Space new.
-    img := B5Image fromFile: 'cat.png'.
+    img := B5Image fromFilePath: 'cat.png'.
     img position: 50 @ 50.
     space root addChild: img.
     space show

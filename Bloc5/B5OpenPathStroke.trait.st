@@ -28,13 +28,12 @@ B5OpenPathStroke >> blCapSelector [
 
 { #category : 'API - painting settings' }
 B5OpenPathStroke >> buildOpenPathBorder [
-
-	 self border: (BlBorder builder
-        paint: self strokeColor;
+    self border: (BlBorder builder
+        paint: self stroke;
         width: self strokeWeight;
         perform: self blCapSelector;
         build).
-    self outskirts: BlOutskirts centered.
+    self outskirts: BlOutskirts centered
 ]
 
 { #category : 'API - painting settings' }
