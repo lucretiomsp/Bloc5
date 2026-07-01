@@ -107,10 +107,10 @@ B5Shape >> resetMatrix [
 
 ]
 
-{ #category : 'trans' }
-B5Shape >> rotate: degrees [
-    transformations add: [ :t | t rotateBy: degrees ].
-    self updateTransform
+{ #category : 'transformations' }
+B5Shape >> rotate: anAngle [
+	transformations add: [ :t | t rotateBy: anAngle ].
+	self updateTransform
 ]
 
 { #category : 'trans' }
@@ -145,6 +145,11 @@ B5Shape >> strokeWeight: anInteger [
 | color |
 color := self border paint.
 self border: (BlBorder paint: color width: anInteger ).
+]
+
+{ #category : 'accessing' }
+B5Shape >> transformations [ 
+^ transformations
 ]
 
 { #category : 'translate' }

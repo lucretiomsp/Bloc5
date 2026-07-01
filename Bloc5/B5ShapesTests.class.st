@@ -16,7 +16,7 @@ B5ShapesTests >> testB5CircleBorder [
 ]
 
 { #category : 'tests' }
-B5ShapesTests >> testNcCircleCreation [
+B5ShapesTests >> testB5CircleCreation [
 
 	| blocEllipse ncEllipse |
 	blocEllipse := BlElement new geometry: BlCircleGeometry new.
@@ -26,7 +26,7 @@ B5ShapesTests >> testNcCircleCreation [
 ]
 
 { #category : 'tests' }
-B5ShapesTests >> testNcCircleDiameter [
+B5ShapesTests >> testB5CircleDiameter [
 
 	| ncCircle |
 	ncCircle := B5Circle new diameter: 30.
@@ -34,7 +34,7 @@ B5ShapesTests >> testNcCircleDiameter [
 ]
 
 { #category : 'tests' }
-B5ShapesTests >> testNcLineCreation [
+B5ShapesTests >> testB5LineCreation [
 
 	| blocLine ncLine |
 	blocLine := BlElement new
@@ -53,11 +53,22 @@ B5ShapesTests >> testNcLineCreation [
 ]
 
 { #category : 'tests' }
-B5ShapesTests >> testNcRectCreation [
+B5ShapesTests >> testB5RectCreation [
 
 	| blocRect ncRect |
 	blocRect := BlElement new geometry: BlRectangleGeometry new.
 
 	ncRect := B5Circle new.
 	self assert: blocRect geometry equals: blocRect geometry
+]
+
+{ #category : 'tests' }
+B5ShapesTests >> testRotate [
+
+
+	| tri |
+	tri := B5Triangle new.
+	tri rotate: 15.
+	tri rotate: 15.
+	self assert: tri transformations size equals: 2
 ]

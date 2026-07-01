@@ -10,6 +10,21 @@ Class {
 }
 
 { #category : 'examples' }
+B5TransformationExamples >> exampleRotate [
+< script: 'self new exampleRotate'>
+| tri space |
+
+space := B5Space  new.
+	tri := B5Triangle new
+		background: Color blue;
+		position: 300@300.
+	space  addChild: tri.
+
+tri onKeyDown:[ :evt | tri rotate: 15].
+space show.
+]
+
+{ #category : 'examples' }
 B5TransformationExamples >> exampleTranslate [
     <script: 'self new exampleTranslate'>
     | space shape |

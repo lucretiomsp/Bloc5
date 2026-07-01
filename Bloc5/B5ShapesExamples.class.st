@@ -145,3 +145,54 @@ B5ShapesExamples >> simpleCurve [
 			 p4: 15 @ 65).
 	space show
 ]
+
+{ #category : 'example' }
+B5ShapesExamples >> threeShapesAnimation [
+
+<script: 'self new threeShapesAnimation'>
+| space circle square triangle t |
+
+space := B5Space new.
+space frameRate: 30.
+
+circle := B5Circle new
+    position: 150 @ 300;
+    diameter: 80;
+    background: Color red.
+
+square := B5Square new
+    position: 400 @ 300;
+    extent: 80 @ 80;
+    background: Color blue.
+
+triangle := B5Triangle new
+    v1: 600 @ 260;
+    v2: 680 @ 260;
+    v3: 640 @ 340;
+    background: Color green.
+
+space root
+    addChild: circle;
+    addChild: square;
+    addChild: triangle.
+
+t := 0.
+
+space drawAnimation: [
+    t := t + 0.05.
+
+    "circle bounces vertically"
+    circle position: 150 @ (300 + (50 * t sin)).
+
+    "square pulses in size"
+    square extent: (80 + (20 * t sin)) asPoint.
+
+    "triangle drifts right, wrapping at the edge"
+    triangle
+        v1: (triangle v1 + (2 @ 0));
+        v2: (triangle v2 + (2 @ 0));
+        v3: (triangle v3 + (2 @ 0))
+].
+
+space show.
+]
