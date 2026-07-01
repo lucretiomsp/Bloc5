@@ -1,11 +1,17 @@
 "
-Sets the style for rendering the ends of lines.
+""A trait providing per-object stroke-cap style for open-path shapes
+(B5Line, B5Spline, open-mode B5Arc). Composing classes must implement
+refreshGeometry, strokeColor, and strokeWeight.
+
+Cap maps to Bloc's border builder: #round -> capRound, #square -> capButt,
+#project -> capSquare. Default is #square (p5.js defaults to ROUND —
+deliberate deviation).
+
+Note: Bloc silently ignores cap style unless outskirts: is set, so
+buildOpenPathBorder sets outskirts: BlOutskirts centered.""
 "
 Trait {
 	#name : 'B5OpenPathStroke',
-	#instVars : [
-		'capStyle'
-	],
 	#category : 'Bloc5-Traits',
 	#package : 'Bloc5',
 	#tag : 'Traits'
@@ -33,13 +39,14 @@ B5OpenPathStroke >> buildOpenPathBorder [
 
 { #category : 'API - painting settings' }
 B5OpenPathStroke >> capStyle [
-    ^ capStyle ifNil: [ #square ]
+
+	^ self capStyle 
 ]
 
 { #category : 'API - painting settings' }
 B5OpenPathStroke >> strokeCap: aSymbol [
-    "#round, #square, #project"
-    capStyle := aSymbol.
-    self refreshGeometry.
+	"#round, #square, #project"
 
+	self capStyle: aSymbol.
+	self refreshGeometry
 ]

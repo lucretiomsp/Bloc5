@@ -20,7 +20,7 @@ space show.
 "
 Class {
 	#name : 'B5Arc',
-	#superclass : 'B5Shape',
+	#superclass : 'B5OpenShape',
 	#instVars : [
 		'startAngle',
 		'stopAngle',

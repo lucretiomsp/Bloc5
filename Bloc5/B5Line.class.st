@@ -3,9 +3,7 @@ I correspond to p5js **line**
 "
 Class {
 	#name : 'B5Line',
-	#superclass : 'B5Shape',
-	#traits : 'B5EventHandler',
-	#classTraits : 'B5EventHandler classTrait',
+	#superclass : 'B5OpenShape',
 	#instVars : [
 		'startPoint',
 		'endPoint'
@@ -32,7 +30,7 @@ B5Line >> endPoint [
 B5Line >> endPoint: aPoint [
 
 	endPoint := aPoint.
-	self updateLine.
+	self refreshGeometry.
 	Object inform: 'CHanged end point'
 ]
 
@@ -55,6 +53,13 @@ B5Line >> initialize [
 		border: (BlBorder paint: Color orange width: 6)
 ]
 
+{ #category : 'private' }
+B5Line >> refreshGeometry [
+
+self
+		geometry: (BlLineGeometry from: startPoint to: endPoint )
+]
+
 { #category : 'accessing' }
 B5Line >> startPoint [
 	^ startPoint
@@ -64,7 +69,7 @@ B5Line >> startPoint [
 B5Line >> startPoint: aPoint [
 
 	startPoint := aPoint.
-	self updateLine
+	self refreshGeometry
 ]
 
 { #category : 'accessing' }
@@ -77,11 +82,4 @@ self border: (BlBorder paint: aColor width: strokeWeight)
 B5Line >> strokeWeight: anInteger [
 
 self border: (BlBorder paint: stroke width: anInteger)
-]
-
-{ #category : 'private' }
-B5Line >> updateLine [
-
-self
-		geometry: (BlLineGeometry from: startPoint to: endPoint )
 ]
