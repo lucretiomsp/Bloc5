@@ -36,7 +36,8 @@ Class {
 	#superclass : 'B5Shape',
 	#instVars : [
 		'filePath',
-		'sourceRect'
+		'sourceRect',
+		'sourceForm'
 	],
 	#category : 'Bloc5-Shapes',
 	#package : 'Bloc5',
@@ -58,15 +59,15 @@ B5Image >> filePath [
 B5Image >> fromFilePath: aPath [
 
 	filePath := aPath.
+	sourceForm := Form fromFileNamed: filePath.
 	self refreshGeometry
 ]
 
 { #category : 'change reporting' }
 B5Image >> refreshGeometry [
-
 	| f |
-	filePath ifNil: [ ^ self ].
-	f := sourceRect ifNil: [ filePath ] ifNotNil: [ filePath copy: sourceRect ].
+	sourceForm ifNil: [ ^ self ].
+	f := sourceRect ifNil: [ sourceForm ] ifNotNil: [ sourceForm copy: sourceRect ].
 	(self extent isNil or: [ self extent = (0 @ 0) ])
 		ifTrue: [ self extent: f extent ]
 		ifFalse: [ f := f scaledToSize: self extent ].
