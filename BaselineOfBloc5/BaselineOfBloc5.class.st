@@ -9,10 +9,14 @@ Class {
 }
 
 { #category : 'baselines' }
-BaselineOfBloc5 >> baseline: spec [ 
+BaselineOfBloc5 >> baseline: spec [
 	<baseline>
 	spec for: #common do: [
 		spec
-			package: 'Bloc5'.
-		spec group: 'default' with: #( 'Bloc5' ) ]
+			baseline: 'Bloc'
+			with: [ spec repository: 'github://pharo-graphics/Bloc:master/src' ].
+		spec
+			package: 'Bloc5'
+			with: [ spec requires: #('Bloc') ].
+		spec group: 'default' with: #('Bloc5') ]
 ]
