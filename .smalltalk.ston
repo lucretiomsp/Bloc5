@@ -2,7 +2,7 @@ SmalltalkCISpec {
   #loading : [
     SCIMetacelloLoadSpec {
       #baseline : 'Bloc5',
-      #directory : 'src'
+      #directory : '.'
     }
   ]
 }
