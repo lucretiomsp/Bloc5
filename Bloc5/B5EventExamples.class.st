@@ -70,7 +70,7 @@ B5EventExamples >> onKeyDownExample [
 		          background: Color black.
  
 	circle onKeyDown: [ :key | circle background: colors atRandom ].
-	circle onClick: [ :x :y | "click first to grab keyboard focus" ].
+	circle onMouseClick: [ :x :y | "click first to grab keyboard focus" ].
  
 	space root addChild: circle.
 	space show
@@ -88,7 +88,7 @@ B5EventExamples >> onKeyUpExample [
 		          background: Color black.
  
 	square onKeyUp: [ :key | square background: Color white ].
-	square onClick: [ :x :y | "click first to grab keyboard focus" ].
+	square onMouseClick: [ :x :y | "click first to grab keyboard focus" ].
  
 	space root addChild: square.
 	space show

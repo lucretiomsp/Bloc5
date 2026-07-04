@@ -9,13 +9,6 @@ Trait {
 }
 
 { #category : 'event handling' }
-B5EventHandler >> onClick: aBlock [
-	self
-		addEventHandlerOn: BlClickEvent
-		do: [ :evt | aBlock value: evt position x value: evt position y ]
-]
-
-{ #category : 'event handling' }
 B5EventHandler >> onKeyDown: aBlock [
 	self requestFocus.
 	self
@@ -30,6 +23,13 @@ B5EventHandler >> onKeyUp: aBlock [
 	self
 		addEventHandlerOn: BlKeyUpEvent
 		do: [ :evt | aBlock value: evt key ]
+]
+
+{ #category : 'event handling' }
+B5EventHandler >> onMouseClick: aBlock [
+	self
+		addEventHandlerOn: BlClickEvent
+		do: [ :evt | aBlock value: evt position x value: evt position y ]
 ]
 
 { #category : 'event handling' }
