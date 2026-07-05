@@ -43,11 +43,11 @@ self startPoint:  aPoint ; endPoint: anotherPoint .
 { #category : 'initialization' }
 B5Line >> initialize [
 
-	super initialize.
+   super initialize .
 	stroke := Color orange.
 	strokeWeight := 6.
-	startPoint := 100@100.
-	endPoint := 300@300.
+	startPoint := 100 @ 100.
+	endPoint := 300 @ 300.
 	self
 		geometry: (BlLineGeometry from: 10 @ 10 to: 200 @ 100);
 		border: (BlBorder paint: Color orange width: 6)
