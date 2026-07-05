@@ -34,11 +34,12 @@ geometry hook to do this instead of constructing geometry.
 Class {
 	#name : 'B5Image',
 	#superclass : 'BlElement',
+	#traits : 'B5EventHandler',
+	#classTraits : 'B5EventHandler classTrait',
 	#instVars : [
 		'filePath',
 		'sourceRect',
-		'sourceForm',
-		'imageContainer'
+		'sourceForm'
 	],
 	#category : 'Bloc5-Shapes',
 	#package : 'Bloc5',
