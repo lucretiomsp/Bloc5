@@ -104,16 +104,17 @@ B5ShapesExamples >> curveFromArray [
     space show
 ]
 
-{ #category : 'example' }
-B5ShapesExamples >> imageCatExample [
+{ #category : 'as yet unclassified' }
+B5ShapesExamples >> exampleChuckCat [
 
-	<script: 'self new imageCatExample'>
-	"change the path to an existing path image in your machine"
-| image space |
-space := B5Space  new.
-image := B5Image new fromFilePath:  '/Users/domenicocipriani/MyStuff/coding/chucK/chuGL/assets/ChuckCat.png'; extent: 200@200.
-space addChild: image.
-space show.
+	<script: 'self new exampleChuckCat'>
+	| space img |
+	space := B5Space new.
+	img := B5Image new fromFilePath:
+		       '/Users/domenicocipriani/MyStuff/coding/chucK/chuGL/assets/ChuckCat.png'.
+	img position: 50 @ 50.
+	space root addChild: img.
+	space show
 ]
 
 { #category : 'example' }

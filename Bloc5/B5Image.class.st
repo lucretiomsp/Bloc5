@@ -33,7 +33,7 @@ geometry hook to do this instead of constructing geometry.
 "
 Class {
 	#name : 'B5Image',
-	#superclass : 'B5Shape',
+	#superclass : 'BlElement',
 	#instVars : [
 		'filePath',
 		'sourceRect',
@@ -46,8 +46,15 @@ Class {
 }
 
 { #category : 'instance creation' }
-B5Image class >> fromFilePath: aFileName [
-    ^ self new fromFilePath: (Form fromFileNamed: aFileName)
+B5Image class >> fromFilePath: aFilePath [
+    ^ self new fromFilePath: aFilePath
+]
+
+{ #category : 'accessing' }
+B5Image >> extent: aPoint [
+    super extent: aPoint.
+    sourceForm ifNotNil: [
+        self background: (self sourceOrSub scaledToSize: aPoint) ]
 ]
 
 { #category : 'accessing' }
@@ -57,26 +64,10 @@ B5Image >> filePath [
 ]
 
 { #category : 'accessing' }
-B5Image >> fromFilePath: aPath [
-
-	filePath := aPath.
-	sourceForm := Form fromFileNamed: filePath.
-	imageContainer := BlElement new
-		                  background: sourceForm;
-		                  extent: sourceForm extent.
-	self
-		addChild: imageContainer;
-		layout: BlLinearLayout horizontal;
-		constraintsDo: [ :c |
-				c horizontal matchParent.
-				c vertical matchParent ];
-		addEventHandlerOn: BlElementExtentChangedEvent
-		do: [ :evt | "Scale the wrapped element to "
-				imageContainer transformDo: [ :builder |
-							builder
-								topLeftOrigin;
-								scaleBy: evt target extent / sourceForm extent ] ].
-	self extent: 200@200
+B5Image >> fromFilePath: aFilePath [
+    sourceForm := Form fromFileNamed: aFilePath.
+    sourceRect := nil.
+    self background: sourceForm; extent: sourceForm extent
 ]
 
 { #category : 'change reporting' }
@@ -88,6 +79,18 @@ B5Image >> refreshGeometry [
 		ifTrue: [ self extent: f extent ]
 		ifFalse: [ f := f scaledToSize: self extent ].
 	self background: f
+]
+
+{ #category : 'accessing' }
+B5Image >> sourceForm [
+
+^ sourceForm
+]
+
+{ #category : 'accessing' }
+B5Image >> sourceOrSub [
+    ^ sourceRect ifNil: [ sourceForm ] ifNotNil: [ sourceForm copy: sourceRect ]
+
 ]
 
 { #category : 'accessing' }
