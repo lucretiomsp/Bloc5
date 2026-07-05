@@ -61,19 +61,22 @@ B5Image >> fromFilePath: aPath [
 
 	filePath := aPath.
 	sourceForm := Form fromFileNamed: filePath.
-	imageContainer := BlElement new background: sourceForm ; extent: sourceForm extent.
-	 self addChild: imageContainer ;
-layout: BlLinearLayout horizontal;
-constraintsDo: [ :c |
-    c horizontal matchParent.
-    c vertical matchParent ];
-addEventHandlerOn: BlElementExtentChangedEvent do: [ :evt |
-    "Scale the wrapped element to "
-    imageContainer transformDo: [ :builder |
-        builder
-            topLeftOrigin;
-scaleBy: evt target extent / sourceForm extent ] ].
-	
+	imageContainer := BlElement new
+		                  background: sourceForm;
+		                  extent: sourceForm extent.
+	self
+		addChild: imageContainer;
+		layout: BlLinearLayout horizontal;
+		constraintsDo: [ :c |
+				c horizontal matchParent.
+				c vertical matchParent ];
+		addEventHandlerOn: BlElementExtentChangedEvent
+		do: [ :evt | "Scale the wrapped element to "
+				imageContainer transformDo: [ :builder |
+							builder
+								topLeftOrigin;
+								scaleBy: evt target extent / sourceForm extent ] ].
+	self extent: 200@200
 ]
 
 { #category : 'change reporting' }
