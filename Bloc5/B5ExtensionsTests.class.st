@@ -47,3 +47,9 @@ B5ExtensionsTests >> testNormNumber [
 
 	self assert: (0 norm: #(-10 10)) equals: 0.5
 ]
+
+{ #category : 'tests' }
+B5ExtensionsTests >> testbpmAsFrameRate [
+
+self assert: 60 bpmAsFrameRate equals: 60/15.
+]
