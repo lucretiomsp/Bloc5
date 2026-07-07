@@ -18,11 +18,29 @@ B5EventHandler >> onKeyDown: aBlock [
 ]
 
 { #category : 'event handling' }
+B5EventHandler >> onKeyDown: aKeyName do: aBlock [
+
+self onKeyDown: [  :evt | evt name == aKeyName  ifTrue: aBlock]
+]
+
+{ #category : 'event handling' }
+B5EventHandler >> onKeyDownNamed: aKeyName do: aBlock [
+
+self onKeyDown: [  :evt | evt name == aKeyName  ifTrue: aBlock]
+]
+
+{ #category : 'event handling' }
 B5EventHandler >> onKeyUp: aBlock [
 	self requestFocus.
 	self
 		addEventHandlerOn: BlKeyUpEvent
 		do: [ :evt | aBlock value: evt key ]
+]
+
+{ #category : 'event handling' }
+B5EventHandler >> onKeyUpNamed: aKeyName do: aBlock [
+
+	self onKeyDown: [ :evt | evt name == aKeyName ifTrue: aBlock ]
 ]
 
 { #category : 'event handling' }
