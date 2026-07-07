@@ -98,3 +98,9 @@ B5Space >> mouseX [
 B5Space >> mouseY [
     ^ mousePosition y
 ]
+
+{ #category : 'steps - interactions' }
+B5Space >> requestFocus [ 
+
+self root requestFocus
+]
