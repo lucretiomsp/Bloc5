@@ -10,11 +10,11 @@ Trait {
 
 { #category : 'event handling' }
 B5EventHandler >> onKeyDown: aBlock [
-	self requestFocus.
+
+	
 	self
 		addEventHandlerOn: BlKeyDownEvent
 		do: [ :evt | aBlock value: evt key ]
- 
 ]
 
 { #category : 'event handling' }
@@ -31,7 +31,8 @@ self onKeyDown: [  :evt | evt name == aKeyName  ifTrue: aBlock]
 
 { #category : 'event handling' }
 B5EventHandler >> onKeyUp: aBlock [
-	self requestFocus.
+
+	
 	self
 		addEventHandlerOn: BlKeyUpEvent
 		do: [ :evt | aBlock value: evt key ]
@@ -40,7 +41,7 @@ B5EventHandler >> onKeyUp: aBlock [
 { #category : 'event handling' }
 B5EventHandler >> onKeyUpNamed: aKeyName do: aBlock [
 
-	self onKeyDown: [ :evt | evt name == aKeyName ifTrue: aBlock ]
+	self onKeyUp: [ :evt | evt name == aKeyName ifTrue: aBlock ]
 ]
 
 { #category : 'event handling' }
