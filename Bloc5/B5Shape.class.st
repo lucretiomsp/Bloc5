@@ -18,8 +18,8 @@ Deferred: shearX:, shearY:, applyMatrix: (no clean Bloc builder verb yet).
 Class {
 	#name : 'B5Shape',
 	#superclass : 'BlElement',
-	#traits : 'B5EventHandler',
-	#classTraits : 'B5EventHandler classTrait',
+	#traits : 'B5EventHandler + B5OnePointPosition',
+	#classTraits : 'B5EventHandler classTrait + B5OnePointPosition classTrait',
 	#instVars : [
 		'mode',
 		'transformations',

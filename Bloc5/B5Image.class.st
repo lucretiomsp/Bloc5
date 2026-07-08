@@ -34,8 +34,8 @@ geometry hook to do this instead of constructing geometry.
 Class {
 	#name : 'B5Image',
 	#superclass : 'BlElement',
-	#traits : 'B5EventHandler',
-	#classTraits : 'B5EventHandler classTrait',
+	#traits : 'B5EventHandler + B5OnePointPosition',
+	#classTraits : 'B5EventHandler classTrait + B5OnePointPosition classTrait',
 	#instVars : [
 		'filePath',
 		'sourceRect',
