@@ -195,7 +195,7 @@ B5EventExamples >> onMouseWheelExample [
 { #category : 'example' }
 B5EventExamples >> onRightClickExample [
 	"Right click the square: it turns crimson."
-	<script: 'self new onSecondaryClickExample'>
+	<script: 'self new onRightClickExample'>
 	| space square |
 	space := B5Space new.
 	square := B5Square new
